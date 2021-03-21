@@ -16,10 +16,6 @@
 
     <div class="container">
         <div id="img_unit">
-            <div class="photo">
-                <img src="img/aokodoll02.png">
-                <div class="inner"><p>コメント１<span>nickname</span></p></div>
-            </div>
         </div>
     </div>
 
@@ -36,9 +32,31 @@
                 "caption": "コメント２"
             }
         ];
+        
+        let img;    /* 画像 */
+        let caption;/* キャプション */
+        let div;    /*  */
 
-        let pref = ['北海道', '青森'];
-        alert(pref[1]);
+        /* imgタグを作成 */
+        img = document.createElement('img');
+        
+        /* src属性を追加 */
+        img.setAttribute('src', images[0].path);
+        // <img src="img/aokodoll02.png">と同義
+
+        caption = document.createElement('div');
+        caption.className = 'inner';
+        caption.innerHTML = '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
+
+        div = document.createElement('div');
+        div.className = 'photo';
+
+        
+        div.appendChild(img);
+        div.appendChild(caption);
+
+        /* 子要素を追加。img_unitクラスに子要素としてdivオブジェクトを追加 */
+        document.getElementById('img_unit').appendChild(div);
     </script>
 </body>
 </html>
