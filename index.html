@@ -22,14 +22,19 @@
     <script>
         let images = [
             {
-                "path": "img/aokodoll02.png",
+                "path": "img/aokodoll01.png",
                 "name": "name01",
                 "caption": "コメント1"
             },
             {
-                "path": "img/aokodoll01.png",
+                "path": "img/aokodoll02.png",
                 "name": "name02",
                 "caption": "コメント２"
+            },
+            {
+                "path": "img/aokodoll03.png",
+                "name": "name03",
+                "caption": "コメント３"
             }
         ];
         
@@ -37,26 +42,27 @@
         let caption;/* キャプション */
         let div;    /*  */
 
-        /* imgタグを作成 */
-        img = document.createElement('img');
-        
-        /* src属性を追加 */
-        img.setAttribute('src', images[0].path);
-        // <img src="img/aokodoll02.png">と同義
+        for (let i = 0; i < images.length; i++) {
+            /* imgタグを作成 */
+            img = document.createElement('img');
+            
+            /* src属性を追加 */
+            img.setAttribute('src', images[i].path);
+            // <img src="img/aokodoll02.png">と同義
 
-        caption = document.createElement('div');
-        caption.className = 'inner';
-        caption.innerHTML = '<p>' + images[0].caption + '<span>' + images[0].name + '</span></p>';
+            caption = document.createElement('div');
+            caption.className = 'inner';
+            caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
 
-        div = document.createElement('div');
-        div.className = 'photo';
+            div = document.createElement('div');
+            div.className = 'photo';
+            
+            div.appendChild(img);
+            div.appendChild(caption);
 
-        
-        div.appendChild(img);
-        div.appendChild(caption);
-
-        /* 子要素を追加。img_unitクラスに子要素としてdivオブジェクトを追加 */
-        document.getElementById('img_unit').appendChild(div);
+            /* 子要素を追加。img_unitクラスに子要素としてdivオブジェクトを追加 */
+            document.getElementById('img_unit').appendChild(div);
+        }
     </script>
 </body>
 </html>
