@@ -22,9 +22,13 @@
     <script>
         // Ajax通信を行うためのオブジェクトを生成
         let ajax = new XMLHttpRequest();
+        // この時、ajax.readyState = 0
+        alert(ajax.readyState);
 
         // 講師のWebサーバー上にあるimages.phpに接続
         ajax.open('GET', 'https://h2o-space.com/htmlbook/images.php');
+        // この時、ajax.readyState = 0
+        alert(ajax.readyState);
 
         // images.phpから返ってくるデータのタイプを指定
         ajax.responseType = 'json';
@@ -36,6 +40,10 @@
         'images.php'という項目が表示され、
         クリックするとjsonファイルが表示されることが確認できる。
          */
+
+        ajax.onreadystatechange = function() {
+            alert(ajax.readyState);
+        }
     </script>
 </body>
 </html>
